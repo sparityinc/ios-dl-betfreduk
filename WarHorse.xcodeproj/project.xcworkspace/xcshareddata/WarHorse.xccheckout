@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2F836B62-BF5E-44DC-9FD2-9F04726AC7AD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>WarHorse</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D84CEED522EADEE1AE3F98A8887D84EF842EF0EA</key>
+		<string>https://corp.northalley.com/vpeetla/mywinners-digitallink.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>WarHorse.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D84CEED522EADEE1AE3F98A8887D84EF842EF0EA</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://corp.northalley.com/vpeetla/mywinners-digitallink.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D84CEED522EADEE1AE3F98A8887D84EF842EF0EA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D84CEED522EADEE1AE3F98A8887D84EF842EF0EA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>mywinners-digitallink</string>
+		</dict>
+	</array>
+</dict>
+</plist>
