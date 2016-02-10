@@ -152,10 +152,11 @@
     }else if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"PEB")]){//Pentafact-Banker
         req_selection = 5;
         
-    }else if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SWB")]){//Swinger-Banker
-        req_selection = 2;
-        
     }
+    //else if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SWB")]){//Swinger-Banker
+      //  req_selection = 2;
+        
+  //  }
 
     
     _numbers_Array = [NSMutableArray new];
@@ -1070,7 +1071,9 @@
     }
     else{
         
-        if ([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"EXB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"TRB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SFB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"PEB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SWB")]){
+        if ([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"EXB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"TRB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SFB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"PEB")])
+            //||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SWB")]
+        {
             
             int selectedRunnersCount = (int)[[[ZLAppDelegate getAppData].currentWager.selectedRunners objectForKey:@"0"] count];
             NSLog(@"selectedRunnersCount %d",selectedRunnersCount);
@@ -1381,7 +1384,9 @@
     ZLRunner * _runner = [self.numbers_Array objectAtIndex:indexPath.row];
     if( _runner.scratched == NO ){
         
-        if ([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"EXB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"TRB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SFB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"PEB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SWB")]){
+        if ([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"EXB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"TRB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SFB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"PEB")])
+            //||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SWB")]
+        {
             int selectedRunnersCount = (int)[[[ZLAppDelegate getAppData].currentWager.selectedRunners objectForKey:@"0"] count];
             
             if (self.legSelection.currentLeg == 0){

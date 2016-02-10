@@ -135,9 +135,12 @@
                 else if([_bet_type.name isEqualToString:@"SWI"]){
                     [self.multiHorseArray addObject:_bet_type];
                     [self.newmultiHorseArray addObject:_bet_type];
-                    
-                    
                 }
+                else if([_bet_type.name isEqualToString:@"SWX"]){
+                    //[self.newmultiHorseArray addObject:_bet_type];
+                    [self.multiHorseArray addObject:_bet_type];
+                }
+
                 
                 
                 else if([_bet_type.name isEqualToString:@"TRI"]){
@@ -171,9 +174,9 @@
 //                else if([_bet_type.name isEqualToString:@"SKB"]){
 //                    //[self.multiHorseArray addObject:_bet_type];
 //                }
-                else if([_bet_type.name isEqualToString:@"SWB"]){
-                    [self.multiHorseArray addObject:_bet_type];
-                }
+               // else if([_bet_type.name isEqualToString:@"SWB"]){
+                   // [self.multiHorseArray addObject:_bet_type];
+               // }
                 
                 else if([_bet_type.name isEqualToString:@"PFC"]){
                     [self.multiHorseArray addObject:_bet_type];

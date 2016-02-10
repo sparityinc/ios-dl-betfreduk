@@ -1526,7 +1526,7 @@ static NSString *const zipCodeAPI = @"http://production.shippingapis.com/Shippin
     if (self.mywinnerIDEnable){
         if (![self.mywinnersIdTF.text isEqualToString:self.confirmMyWinnersIdTf.text]) {
             [self.confirmMyWinnersIdTf resignFirstResponder];
-            [self alertViewMethod:@"Information" messageText:@"TotepoolID doesn't match"];
+            [self alertViewMethod:@"Information" messageText:@"Totepool ID doesn't match"];
             return;
         }
     }

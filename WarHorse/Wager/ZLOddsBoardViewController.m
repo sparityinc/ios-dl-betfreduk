@@ -110,7 +110,7 @@
      */
     //MultiHorseType
     
-    if([[[WarHorseSingleton sharedInstance] betType] isEqualToString:@"SingleHorseType"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"]|| [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"TRI"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"TBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"TRB"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"SFC"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"SFX"]||[[[WarHorseSingleton sharedInstance] betType] isEqualToString:@"MultiHorseType"]) {
+    if([[[WarHorseSingleton sharedInstance] betType] isEqualToString:@"SingleHorseType"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"]|| [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"TRI"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"TBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"TRB"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"SFC"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"SFX"]||[[[WarHorseSingleton sharedInstance] betType] isEqualToString:@"MultiHorseType"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXB"]) {
         
         self.oddsPoolButton.hidden = YES;
         self.probablesButton.hidden = YES;
@@ -122,32 +122,32 @@
         
         
         if ([[[WarHorseSingleton sharedInstance] betType] isEqualToString:@"SingleHorseType"]){
-            [headerLabel setText:@"Odds Board"];
-            self.probablesLabel.text = @"Odds Board";
+            [headerLabel setText:@"WILL PAY"];
+            self.probablesLabel.text = @"WILL PAY";
             
         }else if ([[[WarHorseSingleton sharedInstance] betType] isEqualToString:@"MultiHorseType"]){
             
             
             if ([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"]){
-                NSString *title = @"Will Pay";//[NSString stringWithFormat:@"Will Pay (%@)",[[WarHorseSingleton sharedInstance] currencySymbel]];
+                NSString *title = @"WILL PAY";//[NSString stringWithFormat:@"Will Pay (%@)",[[WarHorseSingleton sharedInstance] currencySymbel]];
 
                 [headerLabel setText:title];
                 self.probablesLabel.text = title;
             }else{
-                [headerLabel setText:@"Odds Board"];
-                self.probablesLabel.text = @"Odds Board";
+                [headerLabel setText:@"WILL PAY"];
+                self.probablesLabel.text = @"WILL PAY";
             }
 
         }else{
             if ([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||
                 [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"]||
-                [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]){
-                 NSString *title = @"Will Pay";//[NSString stringWithFormat:@"Will Pay (%@)",[[WarHorseSingleton sharedInstance] currencySymbel]];
+                [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXB"] ){
+                 NSString *title = @"WILL PAY";//[NSString stringWithFormat:@"Will Pay (%@)",[[WarHorseSingleton sharedInstance] currencySymbel]];
                 [headerLabel setText:title];
                 self.probablesLabel.text = title;
                 
             }else{
-                [headerLabel setText:@"Odds Board"];
+                [headerLabel setText:@"WILL PAY"];
                 self.probablesLabel.text = @"Odds Board";
             }
         }
@@ -160,7 +160,7 @@
     else {
         
         self.probablesLabel.hidden = YES;
-        [headerLabel setText:@"Odds Board"];
+        [headerLabel setText:@"WILL PAY"];
         self.oddsPoolButton.hidden = YES;
         self.probablesButton.hidden = YES;
 
@@ -342,6 +342,12 @@
     else if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"]) {
         self.oddsPool = [[ZLAppDelegate getAppData].dictOddsPoolByMeetPerfRace objectForKey:[NSString stringWithFormat:@"%d_%d_%d_QU",[ZLAppDelegate getAppData].currentWager.selectedRaceMeetNumber, [ZLAppDelegate getAppData].currentWager.selectedRacePerformanceNumber, [ZLAppDelegate getAppData].currentWager.selectedRaceId]];
     }
+    else if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]) {
+        self.oddsPool = [[ZLAppDelegate getAppData].dictOddsPoolByMeetPerfRace objectForKey:[NSString stringWithFormat:@"%d_%d_%d_EX",[ZLAppDelegate getAppData].currentWager.selectedRaceMeetNumber, [ZLAppDelegate getAppData].currentWager.selectedRacePerformanceNumber, [ZLAppDelegate getAppData].currentWager.selectedRaceId]];
+    }
+    else if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXB"]) {
+        self.oddsPool = [[ZLAppDelegate getAppData].dictOddsPoolByMeetPerfRace objectForKey:[NSString stringWithFormat:@"%d_%d_%d_EX",[ZLAppDelegate getAppData].currentWager.selectedRaceMeetNumber, [ZLAppDelegate getAppData].currentWager.selectedRacePerformanceNumber, [ZLAppDelegate getAppData].currentWager.selectedRaceId]];
+    }
     
    // if(self.oddsPool == nil) {
         
@@ -367,6 +373,12 @@
                                  }
                                  else if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"]) {
                                      self.oddsPool = [[ZLAppDelegate getAppData].dictOddsPoolByMeetPerfRace objectForKey:[NSString stringWithFormat:@"%d_%d_%d_QU",[ZLAppDelegate getAppData].currentWager.selectedRaceMeetNumber, [ZLAppDelegate getAppData].currentWager.selectedRacePerformanceNumber, [ZLAppDelegate getAppData].currentWager.selectedRaceId]];
+                                 }
+                                 else if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]) {
+                                     self.oddsPool = [[ZLAppDelegate getAppData].dictOddsPoolByMeetPerfRace objectForKey:[NSString stringWithFormat:@"%d_%d_%d_EX",[ZLAppDelegate getAppData].currentWager.selectedRaceMeetNumber, [ZLAppDelegate getAppData].currentWager.selectedRacePerformanceNumber, [ZLAppDelegate getAppData].currentWager.selectedRaceId]];
+                                 }
+                                 else if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXB"]) {
+                                     self.oddsPool = [[ZLAppDelegate getAppData].dictOddsPoolByMeetPerfRace objectForKey:[NSString stringWithFormat:@"%d_%d_%d_EX",[ZLAppDelegate getAppData].currentWager.selectedRaceMeetNumber, [ZLAppDelegate getAppData].currentWager.selectedRacePerformanceNumber, [ZLAppDelegate getAppData].currentWager.selectedRaceId]];
                                  }
 //                                 else if( [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"WPS"] ){
 //
@@ -394,7 +406,7 @@
 {
     //NSLog(@"exa bet type %@",[ZLAppDelegate getAppData].currentWager.selectedBetType);
 
-    if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"]) {
+    if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXB"]) {
         self.lblOtherBetTypesPoolTotal.font = [UIFont fontWithName:@"Roboto-Light" size:12];
         self.lblOtherBetTypesPoolTotal.text = [NSString stringWithFormat:@"Pool Total : %@%.0f",[[WarHorseSingleton sharedInstance] currencySymbel],self.oddsPool.total];
         [self.flippingView setFrame:CGRectMake(self.flippingView.frame.origin.x,75,self.flippingView.frame.size.width, self.flippingView.frame.size.height+6)];
@@ -478,7 +490,7 @@
         //self.probablesmatrix.hidden = YES;
         [self.flippingView addSubview:self.probablesmatrix];
         
-        if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"]) {
+        if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"] ||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXB"] ) {
             
             //NSLog(@"probablesmatrix sub views = %@", [self.flippingView subviews]);
             
@@ -574,7 +586,7 @@
 
 -(CGFloat) widthForCellInMatrixView:(id)matrixView
 {
-    if( [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"]){
+    if( [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXB"]){
         return 42;
     }
     else if( [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"]){
@@ -595,7 +607,7 @@
     if( self.oddsPool == nil){
         return 0;
     }
-    if( [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"]){
+    if( [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXB"]){
         //NSLog(@"numberOfRowsInMatrix count %d",[self.oddsPool.oddsPoolRunners count]);
         return [self.oddsPool.oddsPoolRunners count];
     }
@@ -616,7 +628,7 @@
         return 0;
     }
     
-    if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"]) {
+    if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"] ||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXB"] ) {
 
         ZLOddsPoolRunner * runnerOdds = [self.oddsPool.oddsPoolRunners objectAtIndex:0];
         return [runnerOdds.withRunners count];
@@ -636,7 +648,7 @@
     
     if (((ZLMatrixView *)matrixView).tag == 111) {
         
-        if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"]) {
+        if([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXB"] ) {
             ZLOddsPoolRunner * runnerOdds = [self.oddsPool.oddsPoolRunners objectAtIndex:row];
             if( runnerOdds != nil){
                 if (column == [runnerOdds.withRunners count]) {
@@ -725,7 +737,7 @@
         
     }
     else{
-        if( [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"]){
+        if( [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXB"] ){
             ZLOddsPoolRunner * runnerOdds = [self.oddsPool.oddsPoolRunners objectAtIndex:row];
             if( runnerOdds != nil){
                 //NSLog(@"count %d",[runnerOdds.withRunners count]);
@@ -752,7 +764,7 @@
 
 - (NSString *) matrixView:(id)matrixView headerForColumn:(NSInteger)column
 {
-    if( [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"]){
+    if( [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXA"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"DBL"] || [[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QNL"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EBX"]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"QBX"] ||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:@"EXB"] ){
         if (((ZLMatrixView *)matrixView).tag == 111){
             return [NSString stringWithFormat:@"%d",((ZLOddsPoolRunner*)[self.oddsPool.oddsPoolRunners objectAtIndex:column]).number];
         }

@@ -79,7 +79,7 @@
         
         RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
         //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
-        self.baseURL = [NSURL URLWithString:kAPIBetfredUKStgHost];
+        self.baseURL = [NSURL URLWithString:kAPIBetfredUKDevHost];
         
         RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:self.baseURL];
         [RKObjectMapping addDefaultDateFormatterForString:@"yyyy-MM-dd'T'HH:mm:ssZ" inTimeZone:nil];

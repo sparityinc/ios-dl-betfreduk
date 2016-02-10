@@ -134,7 +134,10 @@
             
             
             
-            if ([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"EXB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"TRB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SFB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"PEB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SWB")]){
+            if ([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"EXB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"TRB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SFB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"PEB")])
+                //[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SWB")]
+                
+            {
                 float legWidth = 40;
                 width = (legWidth * self.totalLegs) + (2 * LEFT_RIGHT_BUTTON_WIDTH);
                 [backgroundView setFrame:CGRectMake(45, 0, width, self.frame.size.height)];
@@ -253,7 +256,9 @@
 
     [self reloadLookWithCurrentSelectedLeg:-1];
 
-    if ([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"EXB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"TRB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SFB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"PEB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SWB")]){
+    if ([[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"EXB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"TRB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SFB")]||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"PEB")])
+        //||[[ZLAppDelegate getAppData].currentWager.selectedBetType isEqualToString:(@"SWB")]
+    {
         float legWidth = 40;
         [self.selectionImage setFrame:CGRectMake(0, 0, legWidth, self.frame.size.height)];
          frame= self.selectionImage.frame;

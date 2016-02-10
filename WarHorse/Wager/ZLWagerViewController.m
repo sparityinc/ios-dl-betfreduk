@@ -85,7 +85,7 @@
         }
         else{
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Live Odds board is available only for the current race in the selected track" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Live WILL PAY is available only for the current race in the selected track" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
     }

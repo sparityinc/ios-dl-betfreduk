@@ -33,7 +33,7 @@ static int totalSelectionOfBK;
 
     num_leg_map = [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1],  [NSNumber numberWithInt:1],  [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:1], [NSNumber numberWithInt:2], [NSNumber numberWithInt:2], [NSNumber numberWithInt:2], [NSNumber numberWithInt:1],  [NSNumber numberWithInt:3],  [NSNumber numberWithInt:3], [NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:4], [NSNumber numberWithInt:5], [NSNumber numberWithInt:6], [NSNumber numberWithInt:7], [NSNumber numberWithInt:8], [NSNumber numberWithInt:9], [NSNumber numberWithInt:10],  [NSNumber numberWithInt:2], [NSNumber numberWithInt:2], [NSNumber numberWithInt:4], [NSNumber numberWithInt:4], [NSNumber numberWithInt:4], [NSNumber numberWithInt:4], [NSNumber numberWithInt:4], [NSNumber numberWithInt:4], [NSNumber numberWithInt:3],  [NSNumber numberWithInt:3],  [NSNumber numberWithInt:2], [NSNumber numberWithInt:4], [NSNumber numberWithInt:4], [NSNumber numberWithInt:4], [NSNumber numberWithInt:3], [NSNumber numberWithInt:3], [NSNumber numberWithInt:4], [NSNumber numberWithInt:4], [NSNumber numberWithInt:7],  [NSNumber numberWithInt:7], [NSNumber numberWithInt:7], [NSNumber numberWithInt:7], [NSNumber numberWithInt:4], [NSNumber numberWithInt:4], [NSNumber numberWithInt:2], [NSNumber numberWithInt:2], [NSNumber numberWithInt:9], [NSNumber numberWithInt:6],[NSNumber numberWithInt:5],  [NSNumber numberWithInt:5], [NSNumber numberWithInt:6], nil];
     
-    betTypeMappings = @{@"TRB":@"TRB",@"WIN":@"WIN",@"PLC":@"PLC",@"SHW":@"SHW",@"EW":@"EW",@"WPS":@"WPS",@"WS":@"WS",@"PS":@"PS",@"EXA":@"EXA",@"EBX":@"EBX",@"EXB":@"EXB",@"QNL":@"QNL",@"QBX":@"QBX",@"TRI":@"TRI",@"TBX":@"TBX",@"DBL":@"DBL",@"PK3":@"PK3",@"PK4":@"PK4",@"PK5":@"PK5",@"PK6":@"PK6",@"PK7":@"PK7",@"PK8":@"PK8",@"PK9":@"PK9",@"PK10":@"P10",@"PK11":@"P11",@"PK12":@"P12",@"PK13":@"P13",@"PK14":@"P14",@"PK15":@"P15",@"PK16":@"P16",@"TQN":@"TQN",@"TQX":@"TQX",@"DQL":@"DQL",@"DQX":@"DQX",@"DEX1":@"DEX_1",@"DEX2":@"DEX_2",@"CH6":@"CH_6",@"E5N":@"E_5_N",@"E5B":@"E_5_B",@"P10":@"P10",@"QPT":@"QPT",@"PLP":@"PLP",@"JPT":@"JPT",@"SP7":@"SP7",@"SFB":@"SFB",@"PEB":@"PEB",@"SWB":@"SWB",@"SC6":@"SC6",@"SWI":@"SWI",@"SWB":@"SWB"};
+    betTypeMappings = @{@"TRB":@"TRB",@"WIN":@"WIN",@"PLC":@"PLC",@"SHW":@"SHW",@"EW":@"EW",@"WPS":@"WPS",@"WS":@"WS",@"PS":@"PS",@"EXA":@"EXA",@"EBX":@"EBX",@"EXB":@"EXB",@"QNL":@"QNL",@"QBX":@"QBX",@"TRI":@"TRI",@"TBX":@"TBX",@"DBL":@"DBL",@"PK3":@"PK3",@"PK4":@"PK4",@"PK5":@"PK5",@"PK6":@"PK6",@"PK7":@"PK7",@"PK8":@"PK8",@"PK9":@"PK9",@"PK10":@"P10",@"PK11":@"P11",@"PK12":@"P12",@"PK13":@"P13",@"PK14":@"P14",@"PK15":@"P15",@"PK16":@"P16",@"TQN":@"TQN",@"TQX":@"TQX",@"DQL":@"DQL",@"DQX":@"DQX",@"DEX1":@"DEX_1",@"DEX2":@"DEX_2",@"CH6":@"CH_6",@"E5N":@"E_5_N",@"E5B":@"E_5_B",@"P10":@"P10",@"QPT":@"QPT",@"PLP":@"PLP",@"JPT":@"JPT",@"SP7":@"SP7",@"SFB":@"SFB",@"PEB":@"PEB",@"SWB":@"SWB",@"SC6":@"SC6",@"SWI":@"SWI",@"SWX":@"SWX"};
 
 }
 
@@ -143,6 +143,14 @@ static int totalSelectionOfBK;
             numCombos = ( [ZLWagerUtility count:bitMap0] * [ZLWagerUtility count: [ZLWagerUtility convertToBitmap:legs forLeg:1] ] ) - [ZLWagerUtility count:_temp];
         }
     }
+    else if( [_wager.selectedBetType isEqualToString:(@"SWX")]){
+        if ( numLegs == 1 ) {
+            if ( [ZLWagerUtility count:bitMap0] >= 3 ) {
+                numCombos = ( [ZLWagerUtility count:bitMap0] * ( [ZLWagerUtility count:bitMap0] - 1 ) ) / 2.0;
+            }
+        }
+    }
+
     
     //Veeru
     /*
@@ -209,7 +217,9 @@ static int totalSelectionOfBK;
         }
     }
     //Veeru TRB
-    else if( [_wager.selectedBetType isEqualToString:(@"EXB")]||[_wager.selectedBetType isEqualToString:(@"TRB")] || [_wager.selectedBetType isEqualToString:(@"SFB")]||[_wager.selectedBetType isEqualToString:(@"PEB")]||[_wager.selectedBetType isEqualToString:(@"SWB")]){
+    else if( [_wager.selectedBetType isEqualToString:(@"EXB")]||[_wager.selectedBetType isEqualToString:(@"TRB")] || [_wager.selectedBetType isEqualToString:(@"SFB")]||[_wager.selectedBetType isEqualToString:(@"PEB")])
+            //||[_wager.selectedBetType isEqualToString:(@"SWB")]
+    {
         
         
         
@@ -235,10 +245,11 @@ static int totalSelectionOfBK;
         }else if([_wager.selectedBetType isEqualToString:(@"PEB")]){//Pentafact-Banker
             req_selection = 5;
             
-        }else if([_wager.selectedBetType isEqualToString:(@"SWB")]){//Swinger-Banker
-            req_selection = 2;
-            
         }
+//        else if([_wager.selectedBetType isEqualToString:(@"SWB")]){//Swinger-Banker
+//            req_selection = 2;
+//            
+//        }
         BOOL isBK = NO;
         BOOL isOT = NO;
         int idx = [ZLWagerUtility getBetId:_wager.selectedBetType];
@@ -259,13 +270,13 @@ static int totalSelectionOfBK;
                         localCombos = localCombos*k;
                     }
                     //numCombos = numCombos+localCombos;
-                    if([_wager.selectedBetType isEqualToString:(@"SWB")]){
-                        numCombos = numCombos+localCombos/2;
-                        
-                    }else{
+//                    if([_wager.selectedBetType isEqualToString:(@"SWB")]){
+//                        numCombos = numCombos+localCombos/2;
+//                        
+//                    }else{
                         numCombos = numCombos+localCombos;
                         
-                    }
+                   // }
                     
                 }
                 
@@ -578,11 +589,14 @@ static int totalSelectionOfBK;
         CASE(@"PEX"){return 52;}
         CASE(@"PEX"){return 52;}
         CASE(@"PEB"){return 1;}//Veeru
-        CASE(@"SWB"){return 1;}
+       // CASE(@"SWB"){return 1;}
         CASE(@"TRB"){return 1;}
         CASE(@"EXB"){return 1;}
-        CASE(@"SWB"){return 1;}
+       // CASE(@"SWB"){return 1;}
         CASE(@"SWI"){return 8;}
+        CASE(@"SWX"){return 48;}
+
+
 
 
         CASE(@"SFB"){return 9;}

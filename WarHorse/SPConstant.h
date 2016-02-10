@@ -31,8 +31,8 @@
 //#define kDownLoadedBaseCMSUrl @"https://m.mywinners.com/mywinnerscms/file/"
 
 
-//#define kDownLoadedBaseCMSUrl @"http://bfddev.sparity.com:7070/betfredcms/file/"
-#define kDownLoadedBaseCMSUrl @"http://bfdstg.spodemo.com/betfredcms/file/"
+#define kDownLoadedBaseCMSUrl @"http://bfddev.sparity.com:7070/betfredcms/file/"
+//#define kDownLoadedBaseCMSUrl @"http://bfdstg.spodemo.com/betfredcms/file/"
 
 
 

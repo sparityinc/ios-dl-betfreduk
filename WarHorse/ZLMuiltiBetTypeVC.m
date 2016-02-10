@@ -63,8 +63,8 @@
         
     }else if ([betTypeName isEqualToString:@"Swinger"]){
         [dic1 setValue:@"SWI" forKey:@"typeID"];
-        //[dic2 setValue:@"PBX" forKey:@"typeID"];
-        [dic3 setValue:@"SWB" forKey:@"typeID"];
+        [dic2 setValue:@"SWX" forKey:@"typeID"];
+       // [dic3 setValue:@"SWB" forKey:@"typeID"];
     }
     
     [self.muiltiHourses addObject:dic1];
@@ -72,21 +72,27 @@
     
 //    [dic2 setValue:@"Permutation" forKey:@"BetType"];
 
-    [dic3 setValue:@"Banker" forKey:@"BetType"];
-    
-    
     if (![betTypeName isEqualToString:@"Swinger"])
-    {
+     {
+    [dic3 setValue:@"Banker" forKey:@"BetType"];
+         
+     }
+    
+    //if (![betTypeName isEqualToString:@"Swinger"])
+   // {
         [dic2 setValue:@"Permutation" forKey:@"BetType"];
         
         [self.muiltiHourses addObject:dic2];
         
         
-    }
+   // }
 
 
     if ([[WarHorseSingleton sharedInstance] kLegBetting] == YES){
+        if (![betTypeName isEqualToString:@"Swinger"])
+        {
         [self.muiltiHourses addObject:dic3];
+        }
 
     }
     

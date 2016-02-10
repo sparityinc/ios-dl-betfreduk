@@ -226,13 +226,18 @@ static NSString *const kcustomScheduleCellNib = @"SPTodaysTrackCell";
     [self.wagerCustomCell.favButton setImage:[UIImage imageNamed:@"unselect.png"] forState:UIControlStateNormal];
     [self.wagerCustomCell.favButton setImage:[UIImage imageNamed:@"select.png"] forState:UIControlStateHighlighted];
     
-    if([[WarHorseSingleton sharedInstance] isVideoSteamingEnable] == YES)
-    {
-        [self.wagerCustomCell.videoButton setHidden:NO];
+    if([[WarHorseSingleton sharedInstance] isVideoSteamingEnable] == YES){
+        if ([_race_card.isVideoAvailable boolValue]){
+            self.wagerCustomCell.videoButton.hidden = NO;
+            
+        }else{
+            self.wagerCustomCell.videoButton.hidden = YES;
+            
+        }
+        
     }
     else{
-        [self.wagerCustomCell.videoButton setHidden:YES];
-
+        self.wagerCustomCell.videoButton.hidden = YES;
     }
     
     [self.wagerCustomCell.videoButton addTarget:self action:@selector(videoButtonAction:) forControlEvents:UIControlEventTouchUpInside];
